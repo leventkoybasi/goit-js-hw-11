@@ -1,2 +1,141 @@
+/* Import CSS */
 @import "bootstrap/dist/css/bootstrap.min.css";
 @import url("./reset.css");
+
+/* Import FONT */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* ROOT */
+:root {
+  --font-family: "Montserrat", sans-serif;
+
+  --primary-color: #4e75ff;
+  --primary-color-hover: #6c8cff;
+  --white: #ffffff;
+  --black: #000000;
+  --dark-grey: #2e2f42;
+  --light-grey: #808080;
+  --danger: #ef4040;
+}
+* {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+form {
+  margin-top: 36px !important;
+}
+
+.searchBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 36px;
+  gap: 8px;
+}
+
+input[type="text"] {
+  width: 272px;
+  height: 40px;
+  padding: 8px 16px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: var(--dark-grey);
+}
+input::placeholder {
+  font-family: var(--font-family);
+  padding: 8px 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: var(--light-grey);
+}
+.searchBtn {
+  width: 91px;
+  height: 40px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #fff;
+  background-color: var(--primary-color);
+}
+.searchBtn:hover {
+  background-color: var(--primary-color-hover);
+}
+.container {
+  width: 1128px;
+  margin: 0 auto;
+  height: 100%;
+  gap: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+.imgCard {
+  width: 360px;
+  height: 200px;
+  border: 1px solid var(--light-grey);
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+.img {
+  width: 100%;
+  height: 152px;
+  object-fit: cover;
+  overflow: hidden;
+}
+.card-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 4px !important;
+  margin-bottom: 4px !important;
+}
+.container-content {
+}
+.content-title {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+.content-value {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 200%;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+@media screen and (max-width: 1200px) and (min-width: 744px) {
+  .container {
+    width: 744px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .container {
+    width: 360px;
+  }
+}
