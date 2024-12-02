@@ -134,8 +134,10 @@ input::placeholder {
 }
 
 /* Fail Modal */
+.displaying {
+  display: none !important;
+}
 .failmodal {
-  /* display: none !important; */
   position: fixed;
   top: 36px;
   right: 36px;
