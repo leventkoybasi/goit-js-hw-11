@@ -1,34 +1,11 @@
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
+const form = document.querySelector("#searchBar");
+const input = document.querySelector("#textInput");
+const formBtn = document.querySelector("#formBtn");
 
-/**
- * 
- * const imgContainer = document.querySelector('.gallery');
-
-images.forEach(image => {
-  const imgElement = `<li class="gallery-item">
-    <a class="gallery-link" href="${image.original}">
-      <img
-        class="gallery-image"
-        src="${image.preview}"
-        data-source="${image.original}"
-        alt="${image.description}"
-      />
-    </a>
-  </li>`;
-  imgContainer.innerHTML += imgElement;
-});
-
-const lightbox = new SimpleLightbox('.gallery a', {
-  captionsData: 'alt',
-  captionDelay: 250,
-  close: true,
-  scrollZoom: false,
-});
-
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    lightbox.close();
+const BASE_URL = "pixabay.com/api/?key=47351881-fae358547c7b758473d632e4f";
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (input.value) {
   }
+  console.log(input.value);
 });
- */
