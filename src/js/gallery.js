@@ -39,10 +39,10 @@ form.addEventListener("submit", (e) => {
 function createImage(image) {
   image.forEach((img) => {
     const imgCard = `
-  <div class="imgCard">
-        <div class="img">
+  <li class="imgCard">
+        <a class="img">
           <img src=${img.webformatURL} alt="image" />
-        </div>
+        </a>
         <div class="card-content">
           <div class="container-content">
             <div class="content-title">Likes</div>
@@ -61,7 +61,7 @@ function createImage(image) {
             <div class="content-value">${img.downloads}</div>
           </div>
         </div>
-      </div>
+      </li>
   `;
     app.innerHTML += imgCard;
   });
