@@ -1,4 +1,9 @@
 "use strict";
+//IMPORT
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
+//VARIABLES
 const form = document.querySelector("#searchBar");
 const input = document.querySelector("#textInput");
 const formBtn = document.querySelector("#formBtn");
@@ -40,8 +45,8 @@ function createImage(image) {
   image.forEach((img) => {
     const imgCard = `
   <li class="imgCard">
-        <a class="img">
-          <img src=${img.webformatURL} alt="image" />
+        <a class="imgTag" href="${img.largeImageURL}">
+          <img class="img" src=${img.webformatURL} alt="image" />
         </a>
         <div class="card-content">
           <div class="container-content">
@@ -66,6 +71,14 @@ function createImage(image) {
     app.innerHTML += imgCard;
   });
 }
+
+//SIMPLE LIGHTBOX
+const lightbox = new SimpleLightbox(".gallery img", {
+  captionsData: "alt",
+  captionDelay: 250,
+  close: true,
+  scrollZoom: false,
+});
 
 // CLOSE MODAL
 window.addEventListener("click", (event) => {
