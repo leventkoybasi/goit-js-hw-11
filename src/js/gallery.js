@@ -23,6 +23,8 @@ function showLoader() {
 function hiddeLoader() {
   loader.classList.add("hidden");
 }
+
+//CREATE IMAGE ELEMENTS
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   app.innerHTML = "";
