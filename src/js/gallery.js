@@ -15,9 +15,18 @@ const inputValue = input.value;
 let searchParams = "";
 const API_KEY = "47351881-fae358547c7b758473d632e4f";
 
+//LOADER
+const loader = document.querySelector(".loader");
+function showLoader() {
+  loader.classList.remove("hidden");
+}
+function hiddeLoader() {
+  loader.classList.add("hidden");
+}
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   app.innerHTML = "";
+  showLoader();
   if (input.value.trim()) {
     const searchParams = input.value.split(" ").join("+");
     // console.log("Search Params: ", searchParams);
@@ -26,15 +35,31 @@ form.addEventListener("submit", (e) => {
     try {
       fetch(BASE_URL)
         .then((response) => response.json())
-        .then((data) => createImage(data.hits));
+        .then((data) => {
+          hiddeLoader();
+          createImage(data.hits);
+          //SIMPLE LIGHTBOX
+          const lightbox = new SimpleLightbox(".gallery a", {
+            captionsData: "alt",
+            captionDelay: 250,
+            close: true,
+            scrollZoom: false,
+          });
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+          failModal.classList.remove("displaying");
+          failModal.textContent = "An error occurred. Please try again!";
+        });
     } catch (error) {
       console.error("EROR: ", error);
     }
     form.reset();
   } else {
-    console.log("CLASSLIST: ", failModal.classList);
+    // console.log("CLASSLIST: ", failModal.classList);
     failModal.classList.remove("displaying");
     app.innerHTML = "";
+    hiddeLoader();
     form.reset();
   }
 });
@@ -46,7 +71,7 @@ function createImage(image) {
     const imgCard = `
   <li class="imgCard">
         <a class="imgTag" href="${img.largeImageURL}">
-          <img class="img" src=${img.webformatURL} alt="image" />
+          <img class="img" src=${img.webformatURL} alt=${img.tags} />
         </a>
         <div class="card-content">
           <div class="container-content">
@@ -72,47 +97,13 @@ function createImage(image) {
   });
 }
 
-//SIMPLE LIGHTBOX
-const lightbox = new SimpleLightbox(".gallery img", {
-  captionsData: "alt",
-  captionDelay: 250,
-  close: true,
-  scrollZoom: false,
-});
-
 // CLOSE MODAL
 window.addEventListener("click", (event) => {
   if (!event.target.classList.contains("failModal") && !failModal.contains(event.target)) {
     failModal.classList.add("displaying");
-    console.log("if: ", event.target);
+    // console.log("if: ", event.target);
   } else if (event.target.classList.contains("close")) {
     failModal.classList.add("displaying");
-    console.log("else if :", event.target);
+    // console.log("else if :", event.target);
   }
 });
-
-/**
- *   `<div class="imgCard">
-        <div class="img">
-          <img src={img.pageURL} alt="image" />
-        </div>
-        <div class="card-content">
-          <div class="container-content">
-            <div class="content-title">Likes</div>
-            <div class="content-value">Value</div>
-          </div>
-          <div class="container-content">
-            <div class="content-title">Views</div>
-            <div class="content-value">Value</div>
-          </div>
-          <div class="container-content">
-            <div class="content-title">Comments</div>
-            <div class="content-value">Value</div>
-          </div>
-          <div class="container-content">
-            <div class="content-title">Downloads</div>
-            <div class="content-value">Value</div>
-          </div>
-        </div>
-      </div>`
- */

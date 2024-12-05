@@ -12,7 +12,7 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       defer
     ></script>
-    <script type="module" src="/src/main.js" defer></script>
+    <script type="module" src="./src/main.js" defer></script>
     <title>GOIT-JS-HW-11</title>
   </head>
   <body>
@@ -20,30 +20,9 @@
       <input type="text" class="form-control" id="textInput" placeholder="Search images..." />
       <button id="formBtn" type="submit" class="searchBtn btn btn-primary">Search</button>
     </form>
+    <div class="loader hidden"></div>
     <ul id="app" class="gallery container mt-5">
-      <!-- <div class="imgCard">
-        <div class="img">
-          <img src="https://picsum.photos/id/253/600/400" alt="image" />
-        </div>
-        <div class="card-content">
-          <div class="container-content">
-            <div class="content-title">Likes</div>
-            <div class="content-value">Value</div>
-          </div>
-          <div class="container-content">
-            <div class="content-title">Views</div>
-            <div class="content-value">Value</div>
-          </div>
-          <div class="container-content">
-            <div class="content-title">Comments</div>
-            <div class="content-value">Value</div>
-          </div>
-          <div class="container-content">
-            <div class="content-title">Downloads</div>
-            <div class="content-value">Value</div>
-          </div>
-        </div>
-      </div> -->
+      <!-- Gallery -->
     </ul>
     <div id="failModal" class="failmodal displaying">
       <span class="failModalCloseIcon">
